@@ -13,6 +13,7 @@
 #import "SettingsHelper.h"
 #import "UIView+ViewHelper.h"
 #import "UIColor+Helpers.h"
+#import "BSModalPickerView.h"
 
 @interface SetupViewController () {
 	BOOL initialSetup;
@@ -25,6 +26,7 @@
 @property (nonatomic) UITextField *url;
 @property (nonatomic) UITextField *apiKey;
 @property (nonatomic) UITextField *token;
+@property (nonatomic) NSString *currency;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
@@ -127,6 +129,7 @@
 	self.url.text = [SettingsHelper getUrl];
 	self.apiKey.text = [SettingsHelper getApiKey];
 	self.token.text = [SettingsHelper getToken];
+	self.currency = [SettingsHelper getCurrency];
 }
 
 - (void)save {	
@@ -155,6 +158,7 @@
 	[site setObject:self.url.text forKey:KEY_FOR_URL];
 	[site setObject:[self.apiKey.text trimmed] forKey:KEY_FOR_API_KEY];
 	[site setObject:[self.token.text trimmed] forKey:KEY_FOR_TOKEN];
+	[site setObject:[self.currency  trimmed] forKey:KEY_FOR_CURRENCY];
 	
 	if ([SettingsHelper requiresSetup:site]) {
 		[self showError:@"Please fill out all fields before continuing."];
@@ -268,7 +272,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return 4;
+	return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -288,10 +292,14 @@
 		case 2:
 			textField = self.apiKey;
 			cell.textLabel.text = @"API Key:";
-			break;			
-		default:
+			break;
+		case 3:
 			textField = self.token;
 			cell.textLabel.text = @"Token:";
+			break;
+		default:
+			cell.textLabel.text = @"Currency:";
+			cell.detailTextLabel.text = self.currency;
 			break;
 	}
 	
@@ -317,6 +325,10 @@
 		case 3:
 			textField = self.token;
 			break;
+		case 4:
+			[self handleCurrencySelection];
+			[tableView deselectRowAtIndexPath: indexPath animated: NO];
+			return;
 	}
 	
 	if (textField && ![textField isFirstResponder]) {
@@ -324,6 +336,17 @@
 	}
 	
 	[tableView deselectRowAtIndexPath: indexPath animated: NO];
+}
+
+- (void)handleCurrencySelection {
+	NSArray *choices = [NSArray arrayWithObjects: @"USD",	@"AFN",	@"ALL",	@"ANG",	@"ARS",	@"AUD",	@"AWG",	@"AZN",	@"BAM",	@"BBD",	@"BGN",	@"BMD",	@"BND",	@"BOB",	@"BRL",	@"BSD",	@"BWP",	@"BYR",	@"BZD",	@"CAD",	@"CHF",	@"CLP",	@"CNY",	@"COP",	@"CRC",	@"CUP",	@"CZK",	@"DKK",	@"DOP",	@"EEK",	@"EGP",	@"EUR",	@"FJD",	@"FKP",	@"GBP",	@"GGP",	@"GHC",	@"GIP",	@"GTQ",	@"GYD",	@"HKD",	@"HNL",	@"HRK",	@"HUF",	@"IDR",	@"ILS",	@"IMP",	@"INR",	@"IRR",	@"ISK",	@"JEP",	@"JMD",	@"JPY",	@"KGS",	@"KHR",	@"KPW",	@"KRW",	@"KYD",	@"KZT",	@"LAK",	@"LBP",	@"LKR",	@"LRD",	@"LTL",	@"LVL",	@"MKD",	@"MNT",	@"MUR",	@"MXN",	@"MYR",	@"MZN",	@"NAD",	@"NGN",	@"NIO",	@"NOK",	@"NPR",	@"NZD",	@"OMR",	@"PAB",	@"PEN",	@"PHP",	@"PKR",	@"PLN",	@"PYG",	@"QAR",	@"RON",	@"RSD",	@"RUB",	@"SAR",	@"SBD",	@"SCR",	@"SEK",	@"SGD",	@"SHP",	@"SOS",	@"SRD",	@"SVC",	@"SYP",	@"THB",	@"TRL",	@"TRY",	@"TTD",	@"TVD",	@"TWD",	@"UAH",	@"UYU",	@"UZS",	@"VEF",	@"VND",	@"XCD",	@"YER",	@"ZAR",	@"ZWD", nil];
+	
+    BSModalPickerView *pickerView = [[BSModalPickerView alloc] initWithValues:choices];
+    [pickerView presentInView:self.view withBlock:^(BOOL madeChoice) {
+        NSLog(@"Selected value: %@", pickerView.selectedValue);
+		self.currency = pickerView.selectedValue;
+		[self.tableView reloadData];
+    }];
 }
 
 @end

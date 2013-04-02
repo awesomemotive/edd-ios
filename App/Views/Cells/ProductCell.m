@@ -8,6 +8,8 @@
 
 #import "ProductCell.h"
 
+#import "SettingsHelper.h"
+
 @implementation ProductCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -35,6 +37,7 @@
 - (void)setupUserInterface {
 	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
 	[formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+	[formatter setCurrencyCode:[SettingsHelper getCurrency]];
 	
 	self.title.text = self.product.title;
 	self.earnings.text = [NSString stringWithFormat:@"%@", [formatter stringFromNumber: [NSNumber numberWithFloat:self.product.totalEarnings]]];

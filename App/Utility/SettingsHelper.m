@@ -46,6 +46,7 @@
 		[currentSite setObject:[site objectForKey:KEY_FOR_URL] forKey:KEY_FOR_URL];
 		[currentSite setObject:[site objectForKey:KEY_FOR_API_KEY] forKey:KEY_FOR_API_KEY];
 		[currentSite setObject:[site objectForKey:KEY_FOR_TOKEN] forKey:KEY_FOR_TOKEN];
+		[currentSite setObject:[site objectForKey:KEY_FOR_CURRENCY] forKey:KEY_FOR_CURRENCY];
 	} else {
 		[currentSites setObject:site forKey:[site objectForKey:KEY_FOR_SITE_ID]];
 	}
@@ -90,6 +91,16 @@
 	return [site objectForKey:KEY_FOR_TOKEN];
 }
 
++ (NSString *)getCurrency{
+	NSDictionary *site = [self getSiteForSiteID:[self getCurrentSiteID]];
+	if (site == nil || [site objectForKey:KEY_FOR_CURRENCY] == nil) {
+		NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+		[currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+		return currencyFormatter.currencyCode;
+	}
+	return [site objectForKey:KEY_FOR_CURRENCY];
+}
+
 + (BOOL)requiresSetup {
 	NSDictionary *site = [self getSiteForSiteID:[self getCurrentSiteID]];
 	return [self requiresSetup:site];
@@ -101,6 +112,7 @@
 	if ([NSString isNullOrWhiteSpace:[site objectForKey:KEY_FOR_URL]]) return YES;
 	if ([NSString isNullOrWhiteSpace:[site objectForKey:KEY_FOR_API_KEY]]) return YES;
 	if ([NSString isNullOrWhiteSpace:[site objectForKey:KEY_FOR_TOKEN]]) return YES;
+	if ([NSString isNullOrWhiteSpace:[site objectForKey:KEY_FOR_CURRENCY]]) return YES;
 	
 	return NO;
 }

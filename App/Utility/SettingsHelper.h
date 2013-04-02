@@ -15,6 +15,7 @@
 #define KEY_FOR_URL					@"EDDUrl"
 #define KEY_FOR_API_KEY				@"EDDApiKey"
 #define KEY_FOR_TOKEN				@"EDDToken"
+#define KEY_FOR_CURRENCY			@"EDDCurrency"
 
 @interface SettingsHelper : NSObject
 
@@ -29,6 +30,7 @@
 + (NSString *)getUrlForClient;
 + (NSString *)getApiKey;
 + (NSString *)getToken;
++ (NSString *)getCurrency;
 + (BOOL)requiresSetup;
 + (BOOL)requiresSetup:(NSDictionary *)site;
 

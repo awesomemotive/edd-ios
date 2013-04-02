@@ -162,6 +162,7 @@
 	
 	NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
 	[currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+	[currencyFormatter setCurrencyCode:[SettingsHelper getCurrency]];
 		
 	cell.textLabel.text = indexPath.row == 1 ? @"Current Month:" : @"All-Time:";
 	cell.detailTextLabel.text = [currencyFormatter stringFromNumber: [NSNumber numberWithFloat:earnings]];

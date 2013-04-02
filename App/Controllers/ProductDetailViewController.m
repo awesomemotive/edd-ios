@@ -7,7 +7,9 @@
 //
 
 #import "ProductDetailViewController.h"
+
 #import "UIColor+Helpers.h"
+#import "SettingsHelper.h"
 
 @interface ProductDetailViewController () {
 	Product *_product;
@@ -62,6 +64,7 @@
 
 	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
 	[formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+	[formatter setCurrencyCode:[SettingsHelper getCurrency]];
     
     if (indexPath.section == 1) {
 		// Totals

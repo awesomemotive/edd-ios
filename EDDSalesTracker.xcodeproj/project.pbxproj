@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34F83307170B7F34007A33E6 /* BSModalPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F83306170B7F34007A33E6 /* BSModalPickerView.m */; };
 		6951D23816F7C3F100A24034 /* button-slice-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6951D23616F7C3F100A24034 /* button-slice-blue@2x.png */; };
 		6951D23916F7C3F100A24034 /* button-slice-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 6951D23716F7C3F100A24034 /* button-slice-blue.png */; };
 		6951D24516F7FA0A00A24034 /* bg-only-568h.png in Resources */ = {isa = PBXBuildFile; fileRef = 6951D23C16F7FA0A00A24034 /* bg-only-568h.png */; };
@@ -97,6 +98,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34F83305170B7F34007A33E6 /* BSModalPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSModalPickerView.h; sourceTree = "<group>"; };
+		34F83306170B7F34007A33E6 /* BSModalPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSModalPickerView.m; sourceTree = "<group>"; };
 		6951D23616F7C3F100A24034 /* button-slice-blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-slice-blue@2x.png"; sourceTree = "<group>"; };
 		6951D23716F7C3F100A24034 /* button-slice-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-slice-blue.png"; sourceTree = "<group>"; };
 		6951D23C16F7FA0A00A24034 /* bg-only-568h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-only-568h.png"; sourceTree = "<group>"; };
@@ -251,6 +254,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34F83304170B7F27007A33E6 /* BSModalPickerView */ = {
+			isa = PBXGroup;
+			children = (
+				34F83305170B7F34007A33E6 /* BSModalPickerView.h */,
+				34F83306170B7F34007A33E6 /* BSModalPickerView.m */,
+			);
+			path = BSModalPickerView;
+			sourceTree = "<group>";
+		};
 		6961A8FA16F4C6D00042E7B9 /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				69659CA616E8F286006BEE11 /* AFNetworking */,
+				34F83304170B7F27007A33E6 /* BSModalPickerView */,
 				697FF7C416EB8EEC00D0BE91 /* NVSlideMenuController */,
 				6961A8FA16F4C6D00042E7B9 /* SVProgressHUD */,
 				6961A93716F7726C0042E7B9 /* TDSemiModal */,
@@ -491,10 +504,10 @@
 				69659CEB16EA3B3E006BEE11 /* NSString+DateHelper.m */,
 				697FF7F216EBA21F00D0BE91 /* SettingsHelper.h */,
 				697FF7F316EBA21F00D0BE91 /* SettingsHelper.m */,
-				697FF7F916EBA6D500D0BE91 /* UIView+ViewHelper.h */,
-				697FF7FA16EBA6D500D0BE91 /* UIView+ViewHelper.m */,
 				6961A90516F4DF8A0042E7B9 /* UIColor+Helpers.h */,
 				6961A90616F4DF8A0042E7B9 /* UIColor+Helpers.m */,
+				697FF7F916EBA6D500D0BE91 /* UIView+ViewHelper.h */,
+				697FF7FA16EBA6D500D0BE91 /* UIView+ViewHelper.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -685,6 +698,7 @@
 				6961A94316F7726C0042E7B9 /* UIViewController+TDSemiModalExtension.m in Sources */,
 				6951D25216F8B77000A24034 /* SaleDetailCell.m in Sources */,
 				6951D25D16F8F1EE00A24034 /* EarningsDetailViewController.m in Sources */,
+				34F83307170B7F34007A33E6 /* BSModalPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

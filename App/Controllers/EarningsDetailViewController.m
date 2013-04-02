@@ -13,6 +13,7 @@
 #import "UIColor+Helpers.h"
 #import "TDSemiModal.h"
 #import "TDDatePickerController.h"
+#import "SettingsHelper.h"
 
 @interface EarningsDetailViewController () {
 	TDDatePickerController *_datePickerView;
@@ -149,6 +150,7 @@
 	if (indexPath.section == 0) {
 		NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
 		[currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+		[currencyFormatter setCurrencyCode:[SettingsHelper getCurrency]];
 		
 		cell.textLabel.text = _range;
 		cell.detailTextLabel.text = [currencyFormatter stringFromNumber: [NSNumber numberWithFloat:earnings]];

@@ -8,6 +8,8 @@
 
 #import "SaleCell.h"
 
+#import "SettingsHelper.h"
+
 @implementation SaleCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -35,6 +37,7 @@
 - (void)setupUserInterface {
 	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
 	[formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+	[formatter setCurrencyCode:[SettingsHelper getCurrency]];
 	
 	self.total.text = [NSString stringWithFormat:@"%@", [formatter stringFromNumber: [NSNumber numberWithFloat:self.sale.total]]];
 	self.email.text = self.sale.email;

@@ -7,11 +7,13 @@
 //
 
 #import "SaleDetailViewController.h"
+
 #import "UIColor+Helpers.h"
 #import "SaleProduct.h"
 #import "SaleFee.h"
 #import "NSString+DateHelper.h"
 #import "SaleDetailCell.h"
+#import "SettingsHelper.h"
 
 @interface SaleDetailViewController () {
 	Sale *_sale;
@@ -76,6 +78,7 @@
 	
 	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
 	[formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+	[formatter setCurrencyCode:[SettingsHelper getCurrency]];
     
     // Configure the cell...
 	
