@@ -24,6 +24,7 @@
 + (void)setCurrentSiteID:(NSString *)siteID;
 + (NSDictionary *)getSites;
 + (void)saveSite:(NSDictionary *)site;
++ (void)removeSite:(NSDictionary *)site;
 + (NSDictionary *)getSiteForSiteID:(NSString *)siteID;
 + (NSString *)getSiteName;
 + (NSString *)getUrl;

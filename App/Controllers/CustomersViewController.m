@@ -10,6 +10,7 @@
 
 #import "Customer.h"
 #import "SVProgressHUD.h"
+#import "UIView+ViewHelper.h"
 
 @interface CustomersViewController ()
 
@@ -52,6 +53,9 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(reload:)];
     
     self.tableView.rowHeight = 70.0f;
+	
+    [self.view disableScrollsToTopPropertyOnMeAndAllSubviews];
+    self.tableView.scrollsToTop = YES;
     
     [self reload:nil];
 }

@@ -34,6 +34,7 @@
     MenuViewController *menuViewController = [[MenuViewController alloc] init];	
 	
     NVSlideMenuController *slideMenuController = [[NVSlideMenuController alloc] initWithMenuViewController:menuViewController andContentViewController:nav];
+    slideMenuController.panGestureEnabled = NO;
 	
 	[self applyStyleSheet];
 	

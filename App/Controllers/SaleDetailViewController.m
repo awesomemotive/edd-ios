@@ -8,12 +8,13 @@
 
 #import "SaleDetailViewController.h"
 
-#import "UIColor+Helpers.h"
+#import "NSString+DateHelper.h"
 #import "SaleProduct.h"
 #import "SaleFee.h"
-#import "NSString+DateHelper.h"
 #import "SaleDetailCell.h"
 #import "SettingsHelper.h"
+#import "UIColor+Helpers.h"
+#import "UIView+ViewHelper.h"
 
 @interface SaleDetailViewController () {
 	Sale *_sale;
@@ -46,7 +47,9 @@
 
 	[self.tableView registerNib:[self saleCellNib] forCellReuseIdentifier:@"SaleDetailCell"];
 	[self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
-
+	
+    [self.view disableScrollsToTopPropertyOnMeAndAllSubviews];
+    self.tableView.scrollsToTop = YES;
 }
 
 - (UINib *)saleCellNib {

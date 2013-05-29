@@ -11,5 +11,8 @@
 @interface MenuCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
+@property (weak, nonatomic) IBOutlet UILabel *labelCheckmark;
+
+@property (weak, nonatomic) NSString *siteID;
 
 @end

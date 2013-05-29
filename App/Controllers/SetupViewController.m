@@ -8,15 +8,16 @@
 
 #import "SetupViewController.h"
 
+#import "BSModalPickerView.h"
 #import "EDDAPIClient.h"
 #import "NSString+DateHelper.h"
 #import "SettingsHelper.h"
-#import "UIView+ViewHelper.h"
 #import "UIColor+Helpers.h"
-#import "BSModalPickerView.h"
+#import "UIView+ViewHelper.h"
 
 @interface SetupViewController () {
 	BOOL initialSetup;
+	BOOL siteCreation;
 }
 
 
@@ -27,6 +28,8 @@
 @property (nonatomic) UITextField *apiKey;
 @property (nonatomic) UITextField *token;
 @property (nonatomic) NSString *currency;
+
+@property (nonatomic) NSDictionary *siteForEditing;
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
@@ -39,6 +42,16 @@
 	if (!self) return nil;
 	
 	initialSetup = YES;
+	
+	return self;
+}
+
+- (id)initForSiteCreation:(NSDictionary *)site {
+	self = [super init];
+	if (!self) return nil;
+	
+	siteCreation = YES;
+	self.siteForEditing = site;
 	
 	return self;
 }
@@ -63,11 +76,18 @@
 		self.title = @"Getting Started";
 	}
 	
+	if (siteCreation) {
+		self.navigationItem.leftBarButtonItem = nil;
+	}
+	
 	[self setupTextFields];
 	
 	[self.tableView setBackgroundView:nil];
 	[self.tableView setBackgroundColor:[UIColor colorWithHexString:@"#ededed"]];
 	self.tableView.autoresizesSubviews = YES;
+	
+    [self.view disableScrollsToTopPropertyOnMeAndAllSubviews];
+    self.tableView.scrollsToTop = YES;
 	
 	[self.tableView reloadData];
 }
@@ -125,11 +145,45 @@
 }
 
 - (void)loadSettings {
-	self.siteName.text = [SettingsHelper getSiteName];
-	self.url.text = [SettingsHelper getUrl];
-	self.apiKey.text = [SettingsHelper getApiKey];
-	self.token.text = [SettingsHelper getToken];
-	self.currency = [SettingsHelper getCurrency];
+	if (siteCreation) {
+		NSString *siteName = [self.siteForEditing objectForKey:KEY_FOR_SITE_NAME];
+		if ([NSString isNullOrWhiteSpace:siteName]) {
+			siteName = @"";
+		}
+		self.siteName.text = siteName;
+		
+		NSString *url = [self.siteForEditing objectForKey:KEY_FOR_URL];
+		if ([NSString isNullOrWhiteSpace:url]) {
+			url = @"";
+		}
+		self.url.text = url;
+		
+		NSString *apiKey = [self.siteForEditing objectForKey:KEY_FOR_API_KEY];
+		if ([NSString isNullOrWhiteSpace:apiKey]) {
+			apiKey = @"";
+		}
+		self.apiKey.text = apiKey;
+				
+		NSString *token = [self.siteForEditing objectForKey:KEY_FOR_TOKEN];
+		if ([NSString isNullOrWhiteSpace:token]) {
+			token = @"";
+		}
+		self.token.text = token;
+				
+		NSString *currency = [self.siteForEditing objectForKey:KEY_FOR_CURRENCY];
+		if ([NSString isNullOrWhiteSpace:currency]) {
+			NSNumberFormatter *currencyFormatter = [[NSNumberFormatter alloc] init];
+			[currencyFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+			currency = currencyFormatter.currencyCode;
+		}
+		self.currency = currency;
+	} else {
+		self.siteName.text = [SettingsHelper getSiteName];
+		self.url.text = [SettingsHelper getUrl];
+		self.apiKey.text = [SettingsHelper getApiKey];
+		self.token.text = [SettingsHelper getToken];
+		self.currency = [SettingsHelper getCurrency];
+	}
 }
 
 - (void)save {	
@@ -146,7 +200,16 @@
 		return;
 	}
 	
-	NSMutableDictionary *site = [[SettingsHelper getSiteForSiteID:[SettingsHelper getCurrentSiteID]] mutableCopy];
+	NSMutableDictionary *site;
+	
+	if (!siteCreation) {
+		site = [[SettingsHelper getSiteForSiteID:[SettingsHelper getCurrentSiteID]] mutableCopy];
+	} else {
+		if (self.siteForEditing) {
+			site = [self.siteForEditing mutableCopy];
+		}
+	}
+	
 	if (site == nil) {
 		site = [NSMutableDictionary dictionary];
 		

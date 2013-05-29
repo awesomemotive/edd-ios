@@ -39,7 +39,7 @@
 
 + (void)saveSite:(NSDictionary *)site {
 	NSMutableDictionary *currentSites = [[self getSites] mutableCopy];
-	NSMutableDictionary *currentSite = [currentSites objectForKey:KEY_FOR_SITE_ID];
+	NSMutableDictionary *currentSite = [[currentSites objectForKey:[site objectForKey:KEY_FOR_SITE_ID]] mutableCopy];
 	
 	if (currentSite != nil) {
 		[currentSite setObject:[site objectForKey:KEY_FOR_SITE_NAME] forKey:KEY_FOR_SITE_NAME];
@@ -57,6 +57,15 @@
 	NSString *siteID = [site objectForKey:KEY_FOR_SITE_ID];
 	[self setCurrentSiteID:siteID];
 }
+
++ (void)removeSite:(NSDictionary *)site {
+	NSMutableDictionary *currentSites = [[self getSites] mutableCopy];
+	NSMutableDictionary *currentSite = [currentSites objectForKey:[site objectForKey:KEY_FOR_SITE_ID]];
+	
+	[currentSites removeObjectForKey:[currentSite objectForKey:KEY_FOR_SITE_ID]];
+	[[NSUserDefaults standardUserDefaults] setObject:currentSites forKey:KEY_FOR_SITES];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+} 
 
 + (NSDictionary *)getSiteForSiteID:(NSString *)siteID {
 	NSDictionary *currentSites = [self getSites];

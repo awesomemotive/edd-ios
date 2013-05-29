@@ -21,5 +21,6 @@
 - (IBAction)saveSettings:(id)sender;
 
 - (id)initForInitialSetup;
+- (id)initForSiteCreation:(NSDictionary *)site;
 
 @end

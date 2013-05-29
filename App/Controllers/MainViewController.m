@@ -14,13 +14,12 @@
 #import "SetupViewController.h"
 #import "SVProgressHUD.h"
 #import "UIColor+Helpers.h"
+#import "UIView+ViewHelper.h"
 
 @interface MainViewController () {
 	SetupViewController *setupViewController;
 	BOOL setupIsPresent;
 }
-
-- (void)reload:(id)sender;
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) IBOutlet UIButton *salesButton;
@@ -37,7 +36,6 @@
 	float alltimeEarnings;
 }
 
-
 - (id)init {
     self = [super init];
     if (!self) {
@@ -50,6 +48,8 @@
 }
 
 - (void)reload:(id)sender {
+	[self setupSiteName];
+	
 	[SVProgressHUD showWithStatus:@"Loading Data..." maskType:SVProgressHUDMaskTypeClear];
     self.navigationItem.rightBarButtonItem.enabled = NO;
 	
@@ -67,6 +67,9 @@
 	
 	[self.tableView setBackgroundView:nil];
 	[self.tableView setBackgroundColor:[UIColor colorWithHexString:@"#ededed"]];
+	
+    [self.view disableScrollsToTopPropertyOnMeAndAllSubviews];
+    self.tableView.scrollsToTop = YES;
 	
 	[self setupSiteName];
 	

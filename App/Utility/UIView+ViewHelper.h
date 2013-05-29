@@ -11,5 +11,6 @@
 @interface UIView (ViewHelper)
 
 - (UIView *) findFirstResponder;
+- (void) disableScrollsToTopPropertyOnMeAndAllSubviews;
 
 @end

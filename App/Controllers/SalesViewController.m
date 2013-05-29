@@ -9,10 +9,11 @@
 #import "SalesViewController.h"
 
 #import "Sale.h"
+#import "SaleCell.h"
 #import "SaleDetailViewController.h"
 #import "SVProgressHUD.h"
 #import "UIColor+Helpers.h"
-#import "SaleCell.h"
+#import "UIView+ViewHelper.h"
 
 const int kSalesLoadingCellTag = 1273;
 
@@ -85,6 +86,9 @@ const int kSalesLoadingCellTag = 1273;
 	
     [self.tableView registerNib:[self saleCellNib] forCellReuseIdentifier:@"SaleCell"];
 	[self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+	
+    [self.view disableScrollsToTopPropertyOnMeAndAllSubviews];
+    self.tableView.scrollsToTop = YES;
 	   
     [self reload:nil];
 }

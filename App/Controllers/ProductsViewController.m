@@ -10,11 +10,12 @@
 
 #import "NSString+DateHelper.h"
 #import "Product.h"
-#import "UIImageView+AFNetworking.h"
-#import "SVProgressHUD.h"
-#import "ProductDetailViewController.h"
-#import "UIColor+Helpers.h"
 #import "ProductCell.h"
+#import "ProductDetailViewController.h"
+#import "SVProgressHUD.h"
+#import "UIColor+Helpers.h"
+#import "UIImageView+AFNetworking.h"
+#import "UIView+ViewHelper.h"
 
 const int kProductsLoadingCellTag = 1273;
 
@@ -89,6 +90,9 @@ const int kProductsLoadingCellTag = 1273;
 	
     [self.tableView registerNib:[self productCellNib] forCellReuseIdentifier:@"ProductCell"];
 	[self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+	
+    [self.view disableScrollsToTopPropertyOnMeAndAllSubviews];
+    self.tableView.scrollsToTop = YES;
     
     [self reload:nil];
 }

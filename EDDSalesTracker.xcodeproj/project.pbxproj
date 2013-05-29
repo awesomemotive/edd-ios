@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34B65D4817554397009CFA73 /* SSBorderedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B65D4317554397009CFA73 /* SSBorderedView.m */; };
+		34B65D4917554397009CFA73 /* SSDrawingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B65D4517554397009CFA73 /* SSDrawingUtilities.m */; };
+		34B65D4A17554397009CFA73 /* SSGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B65D4717554397009CFA73 /* SSGradientView.m */; };
+		34B65D4E1755498C009CFA73 /* SitesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B65D4C17554989009CFA73 /* SitesViewController.m */; };
+		34B65D4F1755498C009CFA73 /* SitesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B65D4D1755498A009CFA73 /* SitesViewController.xib */; };
+		34B65D5717559446009CFA73 /* BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B65D5217559446009CFA73 /* BButton.m */; };
+		34B65D5817559446009CFA73 /* NSString+FontAwesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B65D5417559446009CFA73 /* NSString+FontAwesome.m */; };
+		34B65D5917559446009CFA73 /* UIColor+BButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 34B65D5617559446009CFA73 /* UIColor+BButton.m */; };
+		34B65D5C17559453009CFA73 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 34B65D5B17559453009CFA73 /* FontAwesome.ttf */; };
 		34F83307170B7F34007A33E6 /* BSModalPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F83306170B7F34007A33E6 /* BSModalPickerView.m */; };
 		6951D23816F7C3F100A24034 /* button-slice-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6951D23616F7C3F100A24034 /* button-slice-blue@2x.png */; };
 		6951D23916F7C3F100A24034 /* button-slice-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 6951D23716F7C3F100A24034 /* button-slice-blue.png */; };
@@ -98,6 +107,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		34B65D4217554397009CFA73 /* SSBorderedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSBorderedView.h; sourceTree = "<group>"; };
+		34B65D4317554397009CFA73 /* SSBorderedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSBorderedView.m; sourceTree = "<group>"; };
+		34B65D4417554397009CFA73 /* SSDrawingUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSDrawingUtilities.h; sourceTree = "<group>"; };
+		34B65D4517554397009CFA73 /* SSDrawingUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSDrawingUtilities.m; sourceTree = "<group>"; };
+		34B65D4617554397009CFA73 /* SSGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSGradientView.h; sourceTree = "<group>"; };
+		34B65D4717554397009CFA73 /* SSGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSGradientView.m; sourceTree = "<group>"; };
+		34B65D4B17554989009CFA73 /* SitesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitesViewController.h; sourceTree = "<group>"; };
+		34B65D4C17554989009CFA73 /* SitesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitesViewController.m; sourceTree = "<group>"; };
+		34B65D4D1755498A009CFA73 /* SitesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SitesViewController.xib; sourceTree = "<group>"; };
+		34B65D5117559446009CFA73 /* BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
+		34B65D5217559446009CFA73 /* BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
+		34B65D5317559446009CFA73 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		34B65D5417559446009CFA73 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		34B65D5517559446009CFA73 /* UIColor+BButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+BButton.h"; sourceTree = "<group>"; };
+		34B65D5617559446009CFA73 /* UIColor+BButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BButton.m"; sourceTree = "<group>"; };
+		34B65D5B17559453009CFA73 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		34F83305170B7F34007A33E6 /* BSModalPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSModalPickerView.h; sourceTree = "<group>"; };
 		34F83306170B7F34007A33E6 /* BSModalPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSModalPickerView.m; sourceTree = "<group>"; };
 		6951D23616F7C3F100A24034 /* button-slice-blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-slice-blue@2x.png"; sourceTree = "<group>"; };
@@ -254,6 +279,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34B65D4117554397009CFA73 /* SSToolkit */ = {
+			isa = PBXGroup;
+			children = (
+				34B65D4217554397009CFA73 /* SSBorderedView.h */,
+				34B65D4317554397009CFA73 /* SSBorderedView.m */,
+				34B65D4417554397009CFA73 /* SSDrawingUtilities.h */,
+				34B65D4517554397009CFA73 /* SSDrawingUtilities.m */,
+				34B65D4617554397009CFA73 /* SSGradientView.h */,
+				34B65D4717554397009CFA73 /* SSGradientView.m */,
+			);
+			path = SSToolkit;
+			sourceTree = "<group>";
+		};
+		34B65D5017559446009CFA73 /* BButton */ = {
+			isa = PBXGroup;
+			children = (
+				34B65D5117559446009CFA73 /* BButton.h */,
+				34B65D5217559446009CFA73 /* BButton.m */,
+				34B65D5317559446009CFA73 /* NSString+FontAwesome.h */,
+				34B65D5417559446009CFA73 /* NSString+FontAwesome.m */,
+				34B65D5517559446009CFA73 /* UIColor+BButton.h */,
+				34B65D5617559446009CFA73 /* UIColor+BButton.m */,
+			);
+			path = BButton;
+			sourceTree = "<group>";
+		};
+		34B65D5A17559453009CFA73 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				34B65D5B17559453009CFA73 /* FontAwesome.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		34F83304170B7F27007A33E6 /* BSModalPickerView */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +395,7 @@
 		69659C9316E8ED99006BEE11 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				34B65D5A17559453009CFA73 /* Fonts */,
 				69659C9416E8ED99006BEE11 /* Images */,
 			);
 			path = Resources;
@@ -394,8 +454,10 @@
 			isa = PBXGroup;
 			children = (
 				69659CA616E8F286006BEE11 /* AFNetworking */,
+				34B65D5017559446009CFA73 /* BButton */,
 				34F83304170B7F27007A33E6 /* BSModalPickerView */,
 				697FF7C416EB8EEC00D0BE91 /* NVSlideMenuController */,
+				34B65D4117554397009CFA73 /* SSToolkit */,
 				6961A8FA16F4C6D00042E7B9 /* SVProgressHUD */,
 				6961A93716F7726C0042E7B9 /* TDSemiModal */,
 			);
@@ -467,6 +529,9 @@
 				697FF7D016EB8F7A00D0BE91 /* SetupViewController.h */,
 				697FF7D116EB8F7A00D0BE91 /* SetupViewController.m */,
 				697FF7D216EB8F7A00D0BE91 /* SetupViewController.xib */,
+				34B65D4B17554989009CFA73 /* SitesViewController.h */,
+				34B65D4C17554989009CFA73 /* SitesViewController.m */,
+				34B65D4D1755498A009CFA73 /* SitesViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -629,6 +694,8 @@
 				6951D24F16F7FABD00A24034 /* 114x114_mobile_icon.png in Resources */,
 				6951D25516F8CD6600A24034 /* SaleDetailCell.xib in Resources */,
 				6951D25F16F8F1FE00A24034 /* EarningsViewController.xib in Resources */,
+				34B65D4F1755498C009CFA73 /* SitesViewController.xib in Resources */,
+				34B65D5C17559453009CFA73 /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,6 +766,13 @@
 				6951D25216F8B77000A24034 /* SaleDetailCell.m in Sources */,
 				6951D25D16F8F1EE00A24034 /* EarningsDetailViewController.m in Sources */,
 				34F83307170B7F34007A33E6 /* BSModalPickerView.m in Sources */,
+				34B65D4817554397009CFA73 /* SSBorderedView.m in Sources */,
+				34B65D4917554397009CFA73 /* SSDrawingUtilities.m in Sources */,
+				34B65D4A17554397009CFA73 /* SSGradientView.m in Sources */,
+				34B65D4E1755498C009CFA73 /* SitesViewController.m in Sources */,
+				34B65D5717559446009CFA73 /* BButton.m in Sources */,
+				34B65D5817559446009CFA73 /* NSString+FontAwesome.m in Sources */,
+				34B65D5917559446009CFA73 /* UIColor+BButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

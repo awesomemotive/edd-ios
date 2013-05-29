@@ -14,6 +14,7 @@
 #import "TDSemiModal.h"
 #import "TDDatePickerController.h"
 #import "SettingsHelper.h"
+#import "UIView+ViewHelper.h"
 
 @interface EarningsDetailViewController () {
 	TDDatePickerController *_datePickerView;
@@ -82,6 +83,9 @@
 	
 	[self.tableView setBackgroundView:nil];
 	[self.tableView setBackgroundColor:[UIColor colorWithHexString:@"#ededed"]];
+	
+    [self.view disableScrollsToTopPropertyOnMeAndAllSubviews];
+    self.tableView.scrollsToTop = YES;
 
 	self.loadCustomButton.hidden = YES;
 	

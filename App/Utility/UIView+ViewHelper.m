@@ -26,4 +26,14 @@
     return nil;
 }
 
+- (void) disableScrollsToTopPropertyOnMeAndAllSubviews {
+    if ([self isKindOfClass:[UIScrollView class]]) {
+        ((UIScrollView *)self).scrollsToTop = NO;
+    }
+	
+    for (UIView *subview in self.subviews) {
+        [subview disableScrollsToTopPropertyOnMeAndAllSubviews];
+    }
+}
+
 @end

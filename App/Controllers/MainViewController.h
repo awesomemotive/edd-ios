@@ -10,4 +10,6 @@
 
 @interface MainViewController : BaseViewController<UITableViewDelegate, UITableViewDataSource>
 
+- (void)reload:(id)sender;
+
 @end

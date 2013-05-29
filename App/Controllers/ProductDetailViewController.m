@@ -8,8 +8,9 @@
 
 #import "ProductDetailViewController.h"
 
-#import "UIColor+Helpers.h"
 #import "SettingsHelper.h"
+#import "UIColor+Helpers.h"
+#import "UIView+ViewHelper.h"
 
 @interface ProductDetailViewController () {
 	Product *_product;
@@ -38,6 +39,9 @@
 	[self.tableView setBackgroundColor:[UIColor colorWithHexString:@"#ededed"]];
 	
 	self.title = @"Product Details";
+	
+    [self.view disableScrollsToTopPropertyOnMeAndAllSubviews];
+    self.tableView.scrollsToTop = YES;
 }
 
 #pragma mark - Table view data source

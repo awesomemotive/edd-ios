@@ -8,6 +8,8 @@
 
 #import "MenuCell.h"
 
+#import "BButton.h"
+#import "SettingsHelper.h"
 #import "UIColor+Helpers.h"
 
 @implementation MenuCell
@@ -18,6 +20,20 @@
         // Initialization code
     }
     return self;
+}
+
+- (void)setSiteID:(NSString *)siteID {
+	_siteID = siteID;
+	
+	self.labelCheckmark.font = [UIFont fontWithName:@"FontAwesome" size:14.0f];
+	
+	if ([[SettingsHelper getCurrentSiteID] isEqualToString:siteID]) {
+		self.labelCheckmark.text = [NSString stringFromAwesomeIcon:FAIconCheck];
+		self.labelCheckmark.hidden = NO;
+	} else {
+		self.labelCheckmark.text = @"";
+		self.labelCheckmark.hidden = YES;
+	}	
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated {
